@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-internal
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-internal
+  template:
+    metadata:
+      labels:
+        app: devops-internal
+    spec:
+      containers:
+        - name: devops-internal
+          image: pende/devops_internal:latest
+          ports:
+            - containerPort: 3000
